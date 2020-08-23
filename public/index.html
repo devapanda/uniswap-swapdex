@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/png" href="%PUBLIC_URL%/favicon.png" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="fortmatic-site-verification" content="j93LgcVZk79qcgyo" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <title>SWAPDEX</title>
+  </head>
+    <body>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    nav{
+        display: flex;
+        position: fixed;
+      z-index: 3;
+        height: 9vh;
+        background: #0f59d1;
+
+
+    }
+    .nav-links{
+        display: flex;
+        list-style: none;
+        width: 50%;
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: auto;
+        margin-top: -40px;
+
+    }
+    .nav-links li a{
+        display: flex;
+        color: black;
+        text-decoration: none;
+        font-size: 16px;
+
+    }
+
+    @media  screen and (max-width: 1370px) {
+        .line{
+            width: 30px;
+            height: 3px;
+            background: black;
+            margin: 5px;
+
+        }
+        nav{
+            position: relative;
+        }
+        .hamberger{
+            position: absolute;
+            cursor: pointer;
+            right: 5%;
+            top:50%;
+            transform: translate(5%, -50%);
+            z-index: 4;
+        }
+
+
+        .nav-links{
+            position: fixed;
+            background: #FFFFFF;
+            height: 50%;
+            width: 50%;
+            right: 0;
+            flex-direction: column;
+            clip-path: circle(100px at 90% -20%);
+            -webkit-clip-path: circle(100px at 90% -20%);
+            transition: all 1s ease-out;
+
+        }
+        .mobile.nav-links{
+            margin-left: 0px;
+
+        }
+        .nav-links.open{
+            clip-path: circle(1300px at 90% -20%);
+            -webkit-clip-path: circle(1300px at 90% -20%);
+        }
+    }
+     img {
+         width: 300px;
+         height: 160px;
+         margin-top: -50px;
+         margin-left: -20px;
+     }
+
+</style>
+
+
+
+<nav>
+    <div class="hamberger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#">connect to wallet</a></li>
+
+    </ul>
+    <a href="#"><img src="11111.png"></a>
+
+</nav>
+
+<script>
+    const hamberger = document.querySelector('.hamberger');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-link li');
+
+    hamberger.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+    });
+</script>
+
+
+
+
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+    </div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+
+  </body>
+
+<body>
+<style>
+    body{
+      margin: 0 0 55px 0;
+      z-index: 1;
+    }
+    .nav{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 55px;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      background-color: #ffffff;
+      display: flex;
+      overflow-x: auto;
+
+      z-index: 2;
+    }
+    .nav__link{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      min-width: 50px;
+      overflow: hidden;
+      white-space: nowrap;
+      font-family: sans-serif;
+      font-size: 13px;
+      color:#5d5657;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: background-color 0.1s ease-in-out;
+    }
+    .nav__link:hover{
+      background-color: #dbdbdb;
+    }
+    .nav__link--active{
+      color: #0f59d1;
+    }
+    .nav__icon{
+      font-size: 18px;
+
+    }
+  </style>
+
+  <nav class="nav">
+    <a href="https://info.swapdex.net" class="nav__link">
+      <i class="material-icons nav__icon">analytics</i>
+      <span class="nav__text">analytics</span>
+    </a>
+
+    <a href="https://app.swapdex.net" class="nav__link nav__link--active">
+      <i class="material-icons nav__icon">swap_horizontal_circle</i>
+      <span class="nav__text">Swap</span>
+    </a>
+
+    <a href="#" class="nav__link">
+      <i class="material-icons nav__icon">account_balance_wallet</i>
+      <span class="nav__text">Dex</span>
+    </a>
+
+    <a href="https://loan.swapdex.net" class="nav__link">
+      <i class="material-icons nav__icon">account_balance</i>
+      <span class="nav__text">Loan</span>
+    </a>
+  </nav>
+
+
+</body>
+</html>
